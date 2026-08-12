@@ -26,7 +26,7 @@ def clean_text_for_oled(text: str) -> str:
 def home():
     return jsonify({"status": "Desk Buddy AI Server is running!"}), 200
 
-@app.route("/chat", methods=["POST"])
+@app.route("/chat", methods=["POST"], strict_slashes=False)
 def chat():
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
